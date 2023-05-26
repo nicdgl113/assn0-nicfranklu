@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="examples.css" />
+    <title>Week 1 Examples</title>
+  </head>
+  <body>
+    <header>
+      <h1 onclick="alert('You clicked on me!')">External JS Page Header</h1>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>
+          <a href="external.html">Exteral JS</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main">
+      <h1>Main Content</h1>
+      <!--script src="examples.js"></!--script-->
+      <img src="photo1.png" alt="photo" onclick="this.src='photo2.png'">
+    </main>
+    <footer id="footer">footer of the page</footer>
+    <script src="examples.js"></script>
+  </body>
+</html>

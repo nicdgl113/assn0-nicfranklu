@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example on progressive enhancement and graceful degradation</title>
+    <style>
+        section{
+            box-sizing: border-box;
+            width:45%;
+            float: left;
+            border: 1px solid blue;
+            margin: 1em 0.2em;
+            padding: 0.5em;
+        }
+    </style>
+</head>
+<body>
+  <header>
+    <h1>Graceful Degradation and Progressive Enhancement</h1>
+  </header>
+    <section>
+        <h2>Graceful Degradation</h2>
+        <p id="degrade">
+          This link is functional only if JS is supported.
+            <a href="javascript:window.print()">Print this page</a>
+          </p>
+          <noscript>
+            <p>If you see this line and the text below, JS is not supported.</p>
+            <p class="scriptwarning">
+              Print a copy of your confirmation. 
+              Select the "Print" icon in your browser,
+              or select "Print" from the "File" menu.
+            </p>
+          </noscript>
+    </section>
+    <section>
+        <h2>
+            Progressive Enhancement
+        </h2>
+        <p>This line and the text below is always visible, but the button is only available when JS is supported.</p>
+        <p id="enhance">Thank you for your order. Please print this page for your records.</p>
+        <script type="text/javascript">
+        /* No need to fully understand the technicality of this code. Its purpose is to use JS to create a button and
+        When the button is clicked, it will print the page content.
+        */
+        (function(){
+          if(document.getElementById){
+            var pt = document.getElementById('enhance');
+            if(pt && typeof window.print === 'function'){
+              var but = document.createElement('input');
+              but.setAttribute('type','button');
+              but.setAttribute('value','Print this now');
+              but.onclick = function(){
+                window.print();
+              };
+              pt.appendChild(but);
+            }
+          }
+        })();
+        </script>
+    </section>
+</body>
+</html>
